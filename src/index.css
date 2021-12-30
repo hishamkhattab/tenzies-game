@@ -1,13 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #2b283a;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1,
+h3,
+p {
+  margin: 0;
+}
+
+/***************************************************************************************/
+/* .root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+main {
+  margin: 2em auto;
+  padding: 2em 4em;
+  background-color: white;
+  width: calc(100% - 4em);
+  max-width: 600px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 25.6px;
+  line-height: 30px;
+  letter-spacing: -0.03em;
+  color: #2b283a;
+  margin-bottom: 1em;
+}
+
+.instruction {
+  font-size: 13.1072px;
+  line-height: 16px;
+  letter-spacing: -0.03em;
+  color: #4a4e74;
+}
+.dice {
+  display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+  justify-items: center;
+  justify-content: center;
+  gap: 1em;
+  margin: 3em 0;
+}
+
+.die-container {
+  width: 35.84px;
+  height: 35.84px;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 3.81277px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.die-container h3 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20.5889px;
+  line-height: 24px;
+  text-align: center;
+  color: #2b283a;
+}
+
+.die-container:active {
+  box-shadow: inset 0px 3px 2px rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+button {
+  font-weight: bold;
+  font-size: 16.384px;
+  line-height: 19px;
+  text-align: center;
+  background: #5035ff;
+  color: #ffffff;
+  border: 0;
+  outline: none;
+  padding: 0.5em 2em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:active {
+  box-shadow: inset 3px 3px 4px 0px rgb(0 0 0 / 78%);
 }
