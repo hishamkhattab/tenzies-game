@@ -2,11 +2,66 @@ import React from 'react'
 
 export default function Dice(props) {
 
-    const styles = { backgroundColor: props.isHeld ? "#59E391" : "#FFFFFF" }
+    const styles = { backgroundColor: props.isHeld ? "#59E391" : "" }
     
+    console.log(props.value);
+
+    const dotElement = [];
+    for (let i = 0; i < props.value; i++) {
+        
+        dotElement.push(<span className='dot'></span>)
+
+    }
+
+    function createDots() {
+        switch (props.value) {
+            case 1:
+                return (
+                    <div className='one die-container' style={styles} onClick={() => props.clickHandle(props.id)}>
+                        {dotElement}
+                    </div>
+                )
+            case 2:
+                return (
+                    <div className='two die-container' style={styles} onClick={() => props.clickHandle(props.id)}>
+                        {dotElement}
+                    </div>
+                )
+            case 3:
+                return (
+                    <div className='three die-container' style={styles} onClick={() => props.clickHandle(props.id)}>
+                        {dotElement}
+                    </div>
+                    )
+            case 4:
+                return (
+                    <div className='four die-container' style={styles} onClick={() => props.clickHandle(props.id)}>
+                        <div className='column'>{ dotElement.slice(2)}</div>
+                        <div className='column'>{ dotElement.slice(2,4)}</div>
+                    </div>
+                )
+            case 5:
+                return (
+                    <div className='five die-container' style={styles} onClick={() => props.clickHandle(props.id)}>
+                    <div className='column'>{ dotElement.slice(0,2)}</div>
+                    <div className='column'>{ dotElement.slice(2,3)}</div>
+                    <div className='column'>{ dotElement.slice(3,5)}</div>
+                    </div>
+                )
+            default:
+                return (
+                    <div className='six die-container' style={styles} onClick={() => props.clickHandle(props.id)}>
+                    <div className='column'>{ dotElement.slice(3)}</div>
+                    <div className='column'>{ dotElement.slice(3,6)}</div>
+                    </div>
+                )
+        }
+    }
+
     return (
-        <div className="die-container" style={styles} onClick={() => props.clickHandle(props.id)}>
-            <h3>{props.value}</h3>
-        </div>
-    )
-}
+        <>
+        {createDots()}
+        </>
+        )
+    }
+    // <h3>{props.value}</h3>
