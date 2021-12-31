@@ -27,9 +27,9 @@ p {
 
 main {
   margin: 2em auto;
-  padding: 2em 4em;
+  padding: 2em 3.5em;
   background-color: white;
-  width: calc(100% - 4em);
+  width: calc(100% - 2em);
   max-width: 600px;
   border-radius: 10px;
   text-align: center;
@@ -55,28 +55,20 @@ main {
   grid-template: auto auto / repeat(5, 1fr);
   justify-items: center;
   justify-content: center;
-  gap: 1em;
+  row-gap: 2em;
+  column-gap: 1em;
   margin: 3em 0;
 }
 
 .die-container {
-  width: 35.84px;
-  height: 35.84px;
+  box-shadow: -5px 6px 5px 1px rgb(0 0 0 / 15%);
   background: #ffffff;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-  border-radius: 3.81277px;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.die-container h3 {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20.5889px;
-  line-height: 24px;
-  text-align: center;
-  color: #2b283a;
+  padding: 4px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10%;
+  max-width: 100%;
 }
 
 .die-container:active {
@@ -100,4 +92,73 @@ button {
 
 button:active {
   box-shadow: inset 3px 3px 4px 0px rgb(0 0 0 / 78%);
+}
+
+/********************************************************************************************/
+/**********************/
+/**** Dot styles ******/
+/**********************/
+
+.dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #2b283a;
+}
+
+.one,
+.two,
+.three,
+.four,
+.five,
+.six {
+  display: flex;
+}
+
+.one {
+  justify-content: center;
+  align-items: center;
+}
+
+.two {
+  justify-content: space-between;
+}
+
+.two .dot:nth-of-type(2) {
+  align-self: flex-end;
+}
+
+.three {
+  justify-content: space-between;
+}
+
+.three .dot:nth-of-type(2) {
+  align-self: center;
+}
+
+.three .dot:nth-of-type(3) {
+  align-self: flex-end;
+}
+
+.four {
+  justify-content: space-between;
+}
+
+.five {
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.five .column:nth-of-type(2) {
+  justify-content: center;
+}
+
+.six {
+  justify-content: space-between;
 }
