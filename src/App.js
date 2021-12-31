@@ -6,7 +6,7 @@ import Confetti from 'react-confetti'
 export default function App() {
 
     const [dice, setDice] = useState(generateDice())
-    const [tenzies, setTenzies] = useState(true)
+    const [tenzies, setTenzies] = useState(false)
 
 
     /**

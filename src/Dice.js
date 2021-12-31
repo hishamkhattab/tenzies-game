@@ -1,15 +1,14 @@
 import React from 'react'
+import { nanoid } from 'nanoid'
 
 export default function Dice(props) {
 
     const styles = { backgroundColor: props.isHeld ? "#59E391" : "" }
     
-    console.log(props.value);
-
     const dotElement = [];
     for (let i = 0; i < props.value; i++) {
         
-        dotElement.push(<span className='dot'></span>)
+        dotElement.push(<span key={nanoid()} className='dot'></span>)
 
     }
 
