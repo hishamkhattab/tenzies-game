@@ -33,6 +33,7 @@ main {
   max-width: 600px;
   border-radius: 10px;
   text-align: center;
+  position: relative;
 }
 
 .title {
@@ -161,4 +162,22 @@ button:active {
 
 .six {
   justify-content: space-between;
+}
+
+/*******************************************/
+.board {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
 }
