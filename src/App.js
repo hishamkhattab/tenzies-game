@@ -1,12 +1,17 @@
 import React, {useState, useEffect} from "react"
-import Dice from "./Dice"
+import Dice from "./components/Dice"
 import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
+import WinBoard from "./components/WinBoard"
+
 
 export default function App() {
 
     const [dice, setDice] = useState(generateDice())
     const [tenzies, setTenzies] = useState(false)
+
+    const [steps, setSteps] = useState(0)
+    const [time, setTime] = useState(0)
 
 
     /**
@@ -21,11 +26,14 @@ export default function App() {
         }
     },[dice])
 
+
+    
     /**
      * function to imitate the dice throughing 
      * @returns an array of length 10 with random values from (1 - 6)
      * it will only generated in the start of the game
      */
+
     function generateDice() {
         const diceArray = []
         for (let i = 0; i < 10; i++) {
@@ -53,6 +61,7 @@ export default function App() {
         }))
     }
 
+
     /**
      * Everytime roll button clicked,
      * keep selected dice through the game and
@@ -63,9 +72,12 @@ export default function App() {
             setDice(prevState => prevState.map(die => {
                 return die.isHeld ? die : diceObject()
             }))
+            setSteps(prevTime => prevTime +1)
         } else {
             setTenzies(false);
             setDice(generateDice());
+            setSteps(0)
+            setTime(0)
         }
     }
 
@@ -80,6 +92,18 @@ export default function App() {
 
 
 
+    /** the timer */
+    function tick() {
+        setTime( timer => timer + 1)
+    }
+
+    useEffect(() => {
+        const interval = setInterval(tick, 1000)
+        return () => {
+            clearInterval(interval)
+        }
+    },[])
+
 
     return (
         <main>
@@ -89,7 +113,8 @@ export default function App() {
             <div className='dice'>
                 {diceElement}
             </div>
-            <button onClick={rollDice}>{ tenzies ? "NEW GAME" : "ROLL"}</button>
-        </main>
-    )
-}
+            <button onClick={rollDice}>{tenzies ? "NEW GAME" : "ROLL"}</button>
+            {tenzies && <WinBoard steps={steps} />}
+            </main>
+            )
+        }
